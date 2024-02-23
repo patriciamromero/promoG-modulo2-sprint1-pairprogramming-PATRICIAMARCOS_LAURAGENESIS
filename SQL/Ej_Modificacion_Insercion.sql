@@ -1,0 +1,19 @@
+CREATE SCHEMA Modificacion_insercion;
+USE Modificacion_insercion;
+CREATE TABLE t1 (a INTEGER, b CHAR(10));
+ALTER TABLE T1 RENAME TO T2;
+ALTER TABLE t2 MODIFY COLUMN a TINYINT NOT NULL;
+ALTER TABLE t2 MODIFY COLUMN b CHAR(20);
+ALTER TABLE T2  RENAME COLUMN b to c;
+ALTER TABLE t2 ADD COLUMN d TIMESTAMP;
+ALTER TABLE t2 DROP COLUMN c;
+CREATE TABLE IF NOT EXISTS t3 SELECT * FROM t2;
+DROP TABLE IF EXISTS t2;
+ALTER TABLE t3 RENAME TO t1;
+CREATE TABLE IF NOT EXISTS customers_mod SELECT * FROM tienda.customers;
+SHOW TABLES LIKE "customers";
+SHOW CREATE TABLE customers_mod;
+INSERT INTO customers_mod 
+	VALUES ('434', 'Adalab','Rodriguez','Julia','672986373',
+			'Calle Falsa 123','Puerta 42','Madrid','España', '28000'
+            'España', 'Number: 15', '20000000')
